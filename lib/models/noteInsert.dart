@@ -1,5 +1,9 @@
 import 'package:flutter/foundation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'noteInsert.g.dart';
+
+@JsonSerializable()
 class NoteManipulation {
   String noteTitle;
   String noteContent;
@@ -9,10 +13,5 @@ class NoteManipulation {
     @required this.noteContent,
   });
 
-  Map<String, dynamic> toJson() {
-    return {
-      "noteTitle": noteTitle,
-      "noteContent": noteContent,
-    };
-  }
+  Map<String, dynamic> toJson() => _$NoteManipulationToJson(this);
 }
